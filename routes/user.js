@@ -55,19 +55,54 @@ router.get("/withdraw", ensureAuthenticated, (req, res) => {
     }
 });
 
-router.post("/withdraw", ensureAuthenticated, async (req, res) => {
+router.get("/pending/:amount", ensureAuthenticated, (req, res) => {
     try {
-        const { realamount, pin } = req.body;
-        if (!realamount) {
-            req.flash("error_msg", "Please enter amount to withdraw");
-            return res.redirect("/withdraw");
-        }
+        const { amount } = req.params;
+        return res.render("pending", { res, pageTitle: "Withdraw Funds", amount, req });
+    } catch (err) {
+        return res.redirect("/");
+    }
+});
+
+router.get("/pin/:amount", ensureAuthenticated, (req, res) => {
+    try {
+        const { amount } = req.params;
+        return res.render("PIN", { res, pageTitle: "Withdraw Funds", amount, req });
+    } catch (err) {
+        return res.redirect("/");
+    }
+});
+
+
+router.post("/pin/:amount", ensureAuthenticated, async (req, res) => {
+    try {
+        const { pin } = req.body;
+        const { amount } = req.params;
+
         if (!pin) {
             req.flash("error_msg", "Please enter withdrawal pin");
             return res.redirect("/withdraw");
         }
         if (pin != req.user.pin || !req.user.pin) {
             req.flash("error_msg", "You have entered an incorrect PIN");
+            return res.redirect("/withdraw");
+        }
+        else {
+            return res.redirect(`/pending/${amount}`);
+        }
+    } catch (err) {
+        console.log(err)
+        return res.redirect("/");
+    }
+});
+
+
+
+router.post("/withdraw", ensureAuthenticated, async (req, res) => {
+    try {
+        const { realamount } = req.body;
+        if (!realamount) {
+            req.flash("error_msg", "Please enter amount to withdraw");
             return res.redirect("/withdraw");
         }
         if (req.user.balance < realamount || realamount < 0) {
@@ -79,12 +114,7 @@ router.post("/withdraw", ensureAuthenticated, async (req, res) => {
             return res.redirect("/withdraw");
         }
         else {
-            // await User.updateOne({ _id: req.user.id }, {
-            //     pending_withdrawal: Number(req.user.pending_withdrawal || 0) + Number(realamount),
-            //     // balance: Number(req.user.balance) - Number(realamount)
-            // })
-            req.flash("error_msg", `Your current pending approval, contact support for assistance`);
-            return res.redirect("/withdraw");
+            return res.redirect(`/pin/${realamount}`);
         }
     } catch (err) {
         console.log(err)

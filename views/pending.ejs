@@ -1,0 +1,39 @@
+<div class="accordion bg-dark" id="accordionExample">
+  <div class="accordion-item">
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse show"
+      aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body bg-dark">
+        <form method="POST">
+          <!-- withdraw design start -->
+          <div class="row bg-dark">
+            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto">
+              <div class="card">
+                <div class="body bg-dark">
+                  <div
+                    class="pending bg-white my-5 mx-auto p-4"
+                    style="max-width: 850px; background-color: #000 !important"
+                  >
+                    <h1 class="text-center text-white">Withdrawal Pending</h1>
+                    <br />
+                    <p class="lead text-center text-white">
+                      Your Withdrawal of <%=req.user.currency%> <%= amount %> is
+                      on pending you need to contact our company livechat
+                      service for proper Withdrawal thank you.
+                    </p>
+                    <a href="/dashboard" class="btn btn-primary text-center"
+                      >Dashboard</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
