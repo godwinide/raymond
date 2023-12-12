@@ -11,58 +11,48 @@ router.get("/", (req, res) => {
 
 router.get("/about", (req, res) => {
     try {
-        return res.render("about", { pageTitle: "About Us", req, res });
+        return res.render("about-us", { pageTitle: "Welcome", req, res });
     }
     catch (err) {
         return res.redirect("/");
     }
 });
 
-router.get("/investment", (req, res) => {
+router.get("/contact-us", (req, res) => {
     try {
-        return res.render("investment", { pageTitle: "Investment", req, res });
+        return res.render("contact-us", { pageTitle: "Welcome", req, res });
     }
     catch (err) {
         return res.redirect("/");
     }
 });
 
-router.get("/partners", (req, res) => {
+router.get("/market-data", (req, res) => {
     try {
-        return res.render("partners", { pageTitle: "Partners", req, res });
+        return res.render("market-data", { pageTitle: "Welcome", req, res });
     }
     catch (err) {
         return res.redirect("/");
     }
 });
 
-router.get("/contact", (req, res) => {
+router.get("/services", (req, res) => {
     try {
-        return res.render("support", { pageTitle: "contact", req, res });
+        return res.render("index", { pageTitle: "Welcome", req, res });
     }
     catch (err) {
         return res.redirect("/");
     }
 });
 
-router.get("/terms", (req, res) => {
+router.get("/faq", (req, res) => {
     try {
-        return res.render("terms", { pageTitle: "Terms", req, res });
+        return res.render("faq", { pageTitle: "Welcome", req, res });
     }
     catch (err) {
         return res.redirect("/");
     }
 });
-
-router.get("/forgot_password", (req, res) => {
-    try {
-        return res.render("forgot", { pageTitle: "Forgot Password", req, res });
-    }
-    catch (err) {
-        return res.redirect("/");
-    }
-});
-
 
 
 module.exports = router;
