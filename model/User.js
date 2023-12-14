@@ -19,23 +19,42 @@ const UserSchema = new Schema({
     },
     balance: {
         type: String,
-        required: true
+        required: false,
+        default: 0
     },
     btcBalance: {
         type: String,
-        required: true
+        required: false,
+        default: 0
     },
     invested: {
         type: String,
-        required: true
+        required: false,
+        default: 0
     },
     accountLevel: {
         type: String,
-        required: true
+        required: false,
+        default: "STARTER"
+    },
+    currency: {
+        type: String,
+        required: false,
+        default: "$"
     },
     password: {
         type: String,
         required: true
+    },
+    isAdmin: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+    upgrade: {
+        type: Boolean,
+        required: false,
+        default: false
     },
     regDate: {
         type: Date,

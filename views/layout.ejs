@@ -90,15 +90,78 @@
         text-align: center;
       }
     </style>
+
+<style>
+  #translate-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 100000;
+      background-color: rgb(30, 30, 30);
+      color: #fff !important;
+  }
+
+  #language-select {
+      display: none;
+      position: fixed;
+      bottom: 70px;
+      left: 20px;
+      padding: 20px 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 100000;
+      background-color: rgb(0, 0, 0);
+      color: #fff !important;
+  }
+
+  #google_translate_element select  option{
+    background-color: #000000 !important;
+    color: #fff !important !important;
+    padding: 10px;
+  }
+
+  #google_translate_element select{
+    background-color: #000000 !important;
+    color: #fff;
+    padding: 10px;
+  }
+
+  #language-select button{
+    background-color: #FFA200;
+    color: #000;
+    border: none;
+    padding: 7px 20px;
+    color: #fff;
+  }
+
+</style>
   </head>
   <body>
     <!-- SVG Preloader Starts -->
     <div id="preloader">
       <div id="preloader-content">
-        <img src="images/logo.gif" />
+        <img src="images/logo.png" />
       </div>
     </div>
     <!-- SVG Preloader Ends -->
+
+     <!-- Add the translate button and language select to the HTML body -->
+     <button id="translate-button">Language</button>
+     <div id="language-select">
+         <label for="select-language">Select Language: </label>
+         <br>
+         <div
+         style="z-index: 1000; position: relative"
+         id="google_translate_element"
+       ></div>
+         <button id="apply-language">Apply</button>
+     </div>
+
     <!-- Wrapper Starts -->
     <div class="wrapper">
       <!-- Header Starts -->
@@ -107,13 +170,14 @@
           <div class="row">
             <!-- Logo Starts -->
             <div class="main-logo col-xs-12 col-md-3 hidden-xs">
-              <a href="index-2.html">
+              <a href="/">
                 <!--<h5 style="font-size:25px;">Xpertcryptotrade</h5>-->
                 <img
                   id="logo"
                   class="img-responsive"
                   src="images/logo.png"
                   alt="logo"
+                  style="max-width: 12em; max-height: 3em;"
                 />
               </a>
             </div>
@@ -344,6 +408,8 @@
  
     <a href="#" id="back-to-top" class="back-to-top fa fa-arrow-up"></a>
     <!-- Back To Top Ends  -->
+
+    <script src="//code.tidio.co/vw1bk8bqncpnfdqyzqnrcbqmsodz5iqx.js" async></script>
     
     <!-- Template JS Files -->
     <script src="web/js/jquery-2.2.4.min.js"></script>
@@ -352,23 +418,35 @@
     <script src="web/js/jquery.magnific-popup.min.js"></script>
     <script src="web/bootstrap-validator/dist/validator.min.js"></script>
     <script src="web/js/custom.js"></script>
+
+    <script>
+        document.getElementById('translate-button').addEventListener('click', () => {
+            // Toggle the display of the language select
+            document.getElementById('language-select').style.display = 'block';
+        });
+
+        document.querySelector('#apply-language').addEventListener('click', () => {
+            document.getElementById('language-select').style.display = 'none';
+        });
+    </script>
     
-    <!-- Live Style Switcher JS File - only demo -->
-    <script src="web/js/styleswitcher.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit"
+    ></script>
 </div>
-<!-- Wrapper Ends -->
-<!-- GetButton.io widget -->
-<script type="text/javascript">
-    (function () {
-        var options = {
-            whatsapp: "+14052256801", // WhatsApp number
-            call_to_action: "Message us", // Call to action
-            position: "left", // Position may be 'right' or 'left'
-        };
-        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
-        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
-</script>
+
+
+
+ 
 </html>

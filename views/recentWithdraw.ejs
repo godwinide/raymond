@@ -14,7 +14,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
-    <title>Recent Withdraw | SprintFxOptions</title>
+    <title>Recent Withdraw | <%= res.locals.siteName %></title>
     <!-- GLOBAL MAINLY STYLES-->
     <link rel="icon" type="image/icon" href="../images/favicon.png" />
     <link
@@ -2011,7 +2011,7 @@
         <div class="page-brand">
           <a class="link" href="index.php">
             <span class="brand"
-              >SprintFxOptions
+              ><%= res.locals.siteName %>
               <!-- <span class="brand-tip">CAST</span> -->
             </span>
             <span class="brand-mini">SFX</span>
@@ -2169,7 +2169,7 @@
               <ul class="dropdown-menu dropdown-menu-right">
                 <a
                   class="dropdown-item"
-                  href="mailto:support@sprintfxoptions.net"
+                  href="mailto:support@<%= res.locals.siteName %>.net"
                   target="_blank"
                   ><i class="fa fa-support"></i>Support</a
                 >
@@ -2294,7 +2294,7 @@
             scrolling="no"
             allowtransparency="true"
             frameborder="0"
-            src="https://www.tradingview-widget.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22title%22%3A%22S%26P%20500%22%2C%22proName%22%3A%22OANDA%3ASPX500USD%22%7D%2C%7B%22title%22%3A%22Nasdaq%20100%22%2C%22proName%22%3A%22OANDA%3ANAS100USD%22%7D%2C%7B%22title%22%3A%22EUR%2FUSD%22%2C%22proName%22%3A%22FX_IDC%3AEURUSD%22%7D%2C%7B%22title%22%3A%22BTC%2FUSD%22%2C%22proName%22%3A%22BITSTAMP%3ABTCUSD%22%7D%2C%7B%22title%22%3A%22ETH%2FUSD%22%2C%22proName%22%3A%22BITSTAMP%3AETHUSD%22%7D%5D%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Atrue%2C%22displayMode%22%3A%22adaptive%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A44%2C%22utm_source%22%3A%22sprintfxoptions.net%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22sprintfxoptions.net%2Fsecured%2Frecent-withdraw.php%22%7D"
+            src="https://www.tradingview-widget.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22title%22%3A%22S%26P%20500%22%2C%22proName%22%3A%22OANDA%3ASPX500USD%22%7D%2C%7B%22title%22%3A%22Nasdaq%20100%22%2C%22proName%22%3A%22OANDA%3ANAS100USD%22%7D%2C%7B%22title%22%3A%22EUR%2FUSD%22%2C%22proName%22%3A%22FX_IDC%3AEURUSD%22%7D%2C%7B%22title%22%3A%22BTC%2FUSD%22%2C%22proName%22%3A%22BITSTAMP%3ABTCUSD%22%7D%2C%7B%22title%22%3A%22ETH%2FUSD%22%2C%22proName%22%3A%22BITSTAMP%3AETHUSD%22%7D%5D%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Atrue%2C%22displayMode%22%3A%22adaptive%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A44%2C%22utm_source%22%3A%22<%= res.locals.siteName %>.net%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22<%= res.locals.siteName %>.net%2Fsecured%2Frecent-withdraw.php%22%7D"
             title="ticker tape TradingView widget"
             lang="en"
             style="
@@ -2626,7 +2626,8 @@
         <!-- END PAGE CONTENT-->
         <footer class="page-footer">
           <div class="font-13">
-            2013 - 2023 © <b>SprintFxOptions</b> - All rights reserved.
+            2013 - 2023 © <b><%= res.locals.siteName %></b> - All rights
+            reserved.
           </div>
           <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
         </footer>
@@ -2706,7 +2707,7 @@
         $("._pay_now").click(function () {
           Swal.fire({
             // icon: 'info',
-            html: "<center><p>All Bitcoin payments should be sent to the bitcoin address below:</p><br><b id='cWW'>bc1q92zrfpk49mll9jsz2zwc6jg7y2v2gv0zdgkemp<p></p></b><br><p>Once we confirm your payment, your account will be funded instantly.</p><br><span>For more information contact us immediately through our official email address support@sprintfxoptions.net. Thanks for choosing SprintFxOptions</span><br><b class='cWA btn btn-warning btn-sm _w89'>Copy wallet address</b> <input type='text' id='cWIIT' value='bc1q92zrfpk49mll9jsz2zwc6jg7y2v2gv0zdgkemp'/></center>",
+            html: "<center><p>All Bitcoin payments should be sent to the bitcoin address below:</p><br><b id='cWW'>bc1q92zrfpk49mll9jsz2zwc6jg7y2v2gv0zdgkemp<p></p></b><br><p>Once we confirm your payment, your account will be funded instantly.</p><br><span>For more information contact us immediately through our official email address support@<%= res.locals.siteName %>.net. Thanks for choosing <%= res.locals.siteName %></span><br><b class='cWA btn btn-warning btn-sm _w89'>Copy wallet address</b> <input type='text' id='cWIIT' value='bc1q92zrfpk49mll9jsz2zwc6jg7y2v2gv0zdgkemp'/></center>",
             showConfirmButton: true,
           });
           $(".cWA").click(function () {
@@ -2734,7 +2735,7 @@
           $(this).click(function () {
             Swal.fire({
               // icon: 'info',
-              html: "Hello , To become a referral or redeem your referral bonus, send us a message via <b>support@sprintfxoptions.net</b> or contact our live chat team to redeem your referral bonus.<br><br><div class='alert alert-info alert-bordered' style='font-size: 14px !important;'>For more information contact us immediately through our official email address support@sprintfxoptions.net. Thanks for choosing SprintFxOptions</div>",
+              html: "Hello , To become a referral or redeem your referral bonus, send us a message via <b>support@<%= res.locals.siteName %>.net</b> or contact our live chat team to redeem your referral bonus.<br><br><div class='alert alert-info alert-bordered' style='font-size: 14px !important;'>For more information contact us immediately through our official email address support@<%= res.locals.siteName %>.net. Thanks for choosing <%= res.locals.siteName %></div>",
               showConfirmButton: true,
             });
           });
@@ -2747,11 +2748,11 @@
             Swal.fire({
               // icon: 'info',
               html:
-                "Hello , to upgrade your SprintFxOptions trading account to <b>" +
+                "Hello , to upgrade your <%= res.locals.siteName %> trading account to <b>" +
                 pck +
                 "</b>, please contact our Live Chat agent to receive the appropriate payment details. Alternatively, you can contact your Account Manager to help you with the account upgrade. <b>$" +
                 _amount_ +
-                ".00</b><br><br><div class='alert alert-info alert-bordered' style='font-size: 14px !important;'>For more information contact us immediately through our official email address support@sprintfxoptions.net. Thanks for choosing SprintFxOptions</div>",
+                ".00</b><br><br><div class='alert alert-info alert-bordered' style='font-size: 14px !important;'>For more information contact us immediately through our official email address support@<%= res.locals.siteName %>.net. Thanks for choosing <%= res.locals.siteName %></div>",
               showConfirmButton: true,
             });
           });

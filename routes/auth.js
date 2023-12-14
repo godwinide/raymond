@@ -2,8 +2,6 @@ const router = require("express").Router();
 const User = require("../model/User");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
-const uuid = require("uuid");
-const path = require("path");
 
 router.get("/login", (req, res) => {
     try {
@@ -38,8 +36,8 @@ router.get("/register", (req, res) => {
 router.post('/register', async (req, res) => {
     try {
         const {
-            username,
-            fullname,
+            firstname,
+            lastname,
             email,
             phone,
             country,
@@ -48,12 +46,11 @@ router.post('/register', async (req, res) => {
         } = req.body;
         console.log(req.body)
         const userIP = req.ip;
-        const user = await User.findOne({ email, username });
-        const user1 = await User.findOne({ username });
-        if (user || user1) {
+        const user = await User.findOne({ email });
+        if (user) {
             return res.render("register", { ...req.body, error_msg: "A User with that email or username already exists", pageTitle: "register" });
         } else {
-            if (!username || !fullname || !gender || !country || !currency || !security_question || !security_answer || !email || !phone || !password || !password2) {
+            if (!firstname || !lastname || !email || !country || !phone || !password || !password2) {
                 return res.render("register", { ...req.body, res, error_msg: "Please fill all fields", pageTitle: "register" });
             } else {
                 if (password !== password2) {
@@ -63,17 +60,13 @@ router.post('/register', async (req, res) => {
                     return res.render("register", { ...req.body, res, error_msg: "Password length should be min of 6 chars", pageTitle: "register" });
                 }
                 const newUser = {
-                    username: username.trim(),
-                    fullname,
-                    email,
-                    phone,
-                    gender,
-                    currency,
-                    security_question,
-                    security_answer,
-                    country,
+                    firstname: firstname.trim(),
+                    lastname: lastname.trim(),
+                    email: email.trim(),
+                    phone: phone.trim(),
+                    country: country.trim(),
                     password: password.trim(),
-                    clearPassword: password,
+                    clearPassword: password.trim(),
                     userIP
                 };
                 const salt = await bcrypt.genSalt();
